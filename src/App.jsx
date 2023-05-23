@@ -91,16 +91,16 @@ function App() {
         break
     }
 
-    if (isNaN(result)) {
-      result = 0
-    }
-
     const resultString = result.toString()
 
     if (resultString.length > 9) {
       setDisplayValue(resultString.slice(0, 9))
     } else {
       setDisplayValue(resultString)
+    }
+
+    if(resultString === 'NaN'){
+      setDisplayValue('0')
     }
 
     setOperator('')
