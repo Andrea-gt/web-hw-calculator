@@ -6,19 +6,21 @@
 }
 
 .calculator_container {
-  margin-top: 25px;
+  margin-top: 10px;
   display: flex;
   align-items: center;
   flex-direction: column;
   background-color: #333533;
   width: 70vh;
-  height: 90vh;
+  height: 94vh;
   border-radius: 40px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+  filter: drop-shadow(0 0 20px rgba(0, 0, 0, 0.5));
 }
 
 .display {
   width: 75%;
-  height: 10%;
+  height: 8%;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
   border-bottom-right-radius: 15px;
@@ -38,7 +40,7 @@
 .operators {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
+  margin-top: 8px;
   padding: 10px 10px;
   width: 90%;
   height: 10%;
@@ -46,7 +48,7 @@
 
 .other_operators {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
   padding: 10px 10px;
   width: 21%;
@@ -60,9 +62,18 @@
 
 .digits {
   width: 90%;
+  height: 118%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  align-items: center; 
+  padding-right: 15px;
+  justify-items: center; 
 }
 
 button {
+  font-family: inherit;
+  font-size: 1.5rem;
   width: 70px;
   height: 70px;
   display: block;
@@ -87,6 +98,15 @@ button img {
 
 .equal_button {
   border-radius: 50px;
-  height: 120px;
+  height: 155px;
   background-color: #FB6F92;
+}
+
+.dot img {
+  width: 10px;
+  height: auto;
+}
+
+.digits button {
+  padding-top: 0px;
 }
