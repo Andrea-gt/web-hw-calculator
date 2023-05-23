@@ -20,26 +20,27 @@ function App() {
   const [hasDecimal, setHasDecimal] = useState(false);
 
   const handleDigitClick = (digit) => {
-    if(displayValue === 0) {
-      setDisplayValue('')
-    }
-
     if (
       displayValue.length < 9 &&
       !(digit === 0 && displayValue === '0') &&
       displayValue !== 'ERROR'
     ) {
-      setDisplayValue((prevValue) => prevValue + digit.toString());
+      if (displayValue === '0') {
+        setDisplayValue(digit.toString());
+      } else {
+        setDisplayValue((prevValue) => prevValue + digit.toString());
+      }
     }
   };
+
 
   const handleOperatorClick = (operator) => {
     if (operator === '+/-') {
       setDisplayValue((prevValue) => {
         if (prevValue.startsWith('-')) {
-          return prevValue.substring(1); // Eliminar el signo -
+          return prevValue.substring(1); 
         } else {
-          return '-' + prevValue; // Agregar el signo -
+          return '-' + prevValue; 
         }
       });
       return;
@@ -131,7 +132,9 @@ function App() {
         <div className={styles.digits_operators_container}>
           <div className={styles.digits}>
             {digits_creator(handleDigitClick)}
-            <button onClick={() => handleDigitClick(0)}>0</button>
+            <button onClick={() => handleDigitClick(0)}>
+              {displayValue === '0' ? 0 : '0'}
+            </button>
             <button className={styles.dot} onClick={handleDecimalClick}>
               <img src="dot.png" alt="dot" />
             </button>
